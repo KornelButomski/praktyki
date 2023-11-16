@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OplataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [OplataController::class, 'index']);
+
+Route::post('/saveOplata', 
+    [OplataController::class, 'saveOplata']
+)->name('saveOplata');
+
+Route::post('/finishedIt/{id}', 
+    [OplataController::class, 'finishedIt']
+)->name('finishedIt');
