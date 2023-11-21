@@ -19,25 +19,27 @@
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             <div>
                 <h1>Kreska</h1><br>
-                    @foreach ($Oplatas as $Oplata)
+                    @foreach ($Fees as $Fee)
                     <p>
-                    Imie: {{ $Oplata->firstname }}<br>
-                    Nazwisko: {{ $Oplata->lastname }}<br>
-                    Rank: {{ $Oplata->rank }}<br>
-                    Zapłacono {{ $Oplata->is_deleted }}<br>
-                    <form method="post" action="{{ route('finishedIt', $Oplata->id) }}">
+                    <table>
+                        <tr><td>Imie</td> <td> {{ $Fee->firstname }}</td></tr>
+                        <tr><td>Nazwisko</td> <td> {{ $Fee->lastname }}</td></tr>
+                        <tr><td>Rank</td> <td> {{ $Fee->rank }}</td></tr>
+                    </table>
+                    <form method="post" action="{{ route('finishedIt', $Fee->id) }}">
 	                        {{ csrf_field() }}
                     <button type="submit" style="background-color: grey">Zapłać</button>
                     </form>
                     <br>
                     </p>
                     @endforeach
-                <form method="post" action=" {{ route('saveOplata') }}">
+                <form method="post" action=" {{ route('saveFee') }}">
                     {{ csrf_field() }}
-
-                    Imię <input type="text" name="oplata"><br>
-                    Nazwisko <input type="text" name="oplata1"><br>
-                    Rank <input type="text" name="oplata2"><br>
+                    <table>
+                        <tr><td>Imię</td> <td><input type="text" name="fee"></td></tr>
+                        <tr><td>Nazwisko</td> <td><input type="text" name="fee1"></td></tr>
+                        <tr><td>Rank</td> <td><input type="text" name="fee2"></td></tr>
+                    </table>
                     <button type="submit">Dodaj opłatę</button>
                 </form>
             </div>

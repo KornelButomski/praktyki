@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\OplataController;
+use App\Http\Controllers\FeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +14,12 @@ use App\Http\Controllers\OplataController;
 |
 */
 
-Route::get('/', [OplataController::class, 'index']);
+Route::get('/', [FeeController::class, 'index']);
 
-Route::post('/saveOplata', 
-    [OplataController::class, 'saveOplata']
-)->name('saveOplata');
+Route::post('/saveFee', 
+    [FeeController::class, 'saveFee']
+)->name('saveFee');
 
 Route::post('/finishedIt/{id}', 
-    [OplataController::class, 'finishedIt']
+    [FeeController::class, 'finishedIt']
 )->name('finishedIt');
