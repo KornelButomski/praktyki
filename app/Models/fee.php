@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class fee extends Model
 {
     use HasFactory;
+
+    protected $table = 'fees';
+
+    protected $primaryKey = 'id';
+
+    public function user()
+    {
+        return $this->belongsTo(user::class);
+    }
 }

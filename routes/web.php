@@ -14,7 +14,15 @@ use App\Http\Controllers\FeeController;
 |
 */
 
-Route::get('/', [FeeController::class, 'index']);
+Route::get('/', function () {
+    return view('loginPage');
+});
+
+Route::get('mainPage', [FeeController::class, 'index']);
+
+Route::post('/login', 
+    [FeeController::class, 'login']
+)->name('login');
 
 Route::post('/saveFee', 
     [FeeController::class, 'saveFee']

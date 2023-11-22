@@ -11,13 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('oplatas', function (Blueprint $table) {
-            $table->id();
+        Schema::create('users', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('email');
+            $table->string('password');
+        });
+
+        Schema::create('fees', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('user_id');
             $table->string('firstname');
             $table->string('lastname');
             $table->string('rank');
             $table->dateTime('created_at');
             $table->boolean('is_deleted');
+            $table->foreign('user_id')->references('id')->on('fees')->onDelete('cascade');
         });
     }
 
@@ -26,6 +36,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('oplatas');
+        Schema::dropIfExists('users');
+        Schema::dropIfExists('fees');
     }
 };

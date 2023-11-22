@@ -18,29 +18,16 @@
     <body class="antialiased">
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             <div>
-                <h1>Kreska</h1><br>
-                    @foreach ($Fees as $Fee)
-                    <p>
-                    <table>
-                        <tr><td>Imie</td> <td> {{ $Fee->firstname }}</td></tr>
-                        <tr><td>Nazwisko</td> <td> {{ $Fee->lastname }}</td></tr>
-                        <tr><td>Rank</td> <td> {{ $Fee->rank }}</td></tr>
-                    </table>
-                    <form method="post" action="{{ route('finishedIt', $Fee->id) }}">
-	                        {{ csrf_field() }}
-                    <button type="submit" style="background-color: grey">Zapłać</button>
-                    </form>
-                    <br>
-                    </p>
-                    @endforeach
-                <form method="post" action=" {{ route('saveFee') }}">
+                <h1>Zaloguj Się</h1><br>
+                <form method="post" action="{{ route('login') }}">
                     {{ csrf_field() }}
                     <table>
-                        <tr><td>Imię</td> <td><input type="text" name="fee"></td></tr>
-                        <tr><td>Nazwisko</td> <td><input type="text" name="fee1"></td></tr>
-                        <tr><td>Rank</td> <td><input type="text" name="fee2"></td></tr>
+                        <tr><td>Imię</td> <td><input type="text" name="login"></td></tr>
+                        <tr><td>Nazwisko</td> <td><input type="text" name="login1"></td></tr>
+                        <tr><td>Email</td> <td><input type="text" name="login2"></td></tr>
+                        <tr><td>Hasło</td> <td><input type="text" name="login3"></td></tr>
                     </table>
-                    <button type="submit">Dodaj opłatę</button>
+                    <button type="submit">Zaloguj Się</button>
                 </form>
             </div>
         </div>
